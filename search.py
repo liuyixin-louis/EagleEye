@@ -85,7 +85,7 @@ def main(opt):
     #     # illegal pruning strategy
     #     return
     print("0")
-    net = net.to(device)
+    # net = net.to(device)
     print("1")
     net.parallel(opt.gpu_ids)
     print("2")
