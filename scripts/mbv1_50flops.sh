@@ -3,8 +3,8 @@ python3 search.py \
 --model_name mobilenetv1 \
 --num_classes 1000 \
 --checkpoint models/ckpt/imagenet_mobilenet_full_model.pth \
---gpu_ids 0 \
---batch_size 128 \
+--gpu_ids 2 \
+--batch_size 8 \
 --dataset_path /data/imagenet \
 --dataset_name imagenet_train_val_split \
 --num_workers 4 \
