@@ -55,6 +55,7 @@ def main(opt):
     net = ModelWrapper(opt)
     net.load_checkpoint(opt.checkpoint)
     flops_before, params_before = model_summary(net.get_compress_part(), dummy_input)
+    print( flops_before, params_before)
 
     #####################  Pruning Strategy Generation ###############
     compression_scheduler = distiller.file_config(
