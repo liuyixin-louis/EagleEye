@@ -3,14 +3,13 @@ python3 search.py \
 --model_name mobilenetv1 \
 --num_classes 1000 \
 --checkpoint models/ckpt/imagenet_mobilenet_full_model.pth \
---gpu_ids 2 \
+--gpu_ids 2 3 4 5 6 7 8 9 \
 --batch_size 8 \
 --dataset_path /data/imagenet \
 --dataset_name imagenet_train_val_split \
 --num_workers 4 \
 --flops_target 0.5 \
 --max_rate 0.7 \
---affine 0 \
 --output_file search_results/mbv1_strategies.txt \
 --compress_schedule_path compress_config/mbv1_imagenet.yaml
 

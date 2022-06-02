@@ -51,6 +51,7 @@ class ModelWrapper(nn.Module):
 
     def parallel(self, gpu_ids):
         if len(gpu_ids) > 1:
+            print("many gpu")
             self._net = nn.DataParallel(self._net)
 
     def get_loss(self, inputs):
