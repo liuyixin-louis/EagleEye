@@ -33,23 +33,23 @@ def get_pruning_strategy(opt, num_layer):
 
 def main(opt):
     # basic settings
-    os.environ["CUDA_VISIBLE_DEVICES"] = str(opt.gpu_ids)[1:-1]
-
-    if torch.cuda.is_available():
-        device = "cuda"
-        torch.backends.cudnn.benchmark = True
-    else:
-        device = "cpu"
-    ##################### Get Dataloader ####################
-    dataloader_train, dataloader_val = custom_get_dataloaders(opt)
-    # dummy_input is sample input of dataloaders
-    if hasattr(dataloader_val, "dataset"):
-        dummy_input = dataloader_val.dataset.__getitem__(0)
-        dummy_input = dummy_input[0]
-        dummy_input = dummy_input.unsqueeze(0)
-    else:
-        # for imagenet dali loader
-        dummy_input = torch.rand(1, 3, 224, 224)
+    # os.environ["CUDA_VISIBLE_DEVICES"] = str(opt.gpu_ids)[1:-1]
+    #
+    # if torch.cuda.is_available():
+    #     device = "cuda"
+    #     torch.backends.cudnn.benchmark = True
+    # else:
+    #     device = "cpu"
+    # ##################### Get Dataloader ####################
+    # dataloader_train, dataloader_val = custom_get_dataloaders(opt)
+    # # dummy_input is sample input of dataloaders
+    # if hasattr(dataloader_val, "dataset"):
+    #     dummy_input = dataloader_val.dataset.__getitem__(0)
+    #     dummy_input = dummy_input[0]
+    #     dummy_input = dummy_input.unsqueeze(0)
+    # else:
+    #     # for imagenet dali loader
+    #     dummy_input = torch.rand(1, 3, 224, 224)
 
     #####################  Create Baseline Model  ####################
     net = ModelWrapper(opt)
@@ -107,6 +107,7 @@ def main(opt):
 
 if __name__ == "__main__":
     # get options
-    opt = BaseOptions().parse()
-    while True:
-        main(opt)
+    # opt = BaseOptions().parse()
+    # while True:
+    #     main(opt)
+    print("hello world")
