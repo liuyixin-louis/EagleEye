@@ -119,7 +119,7 @@ class ModelWrapper(nn.Module):
                 module.weight = torch.nn.Parameter(checkpoint[key + ".weight"])
                 module.out_channels = module.weight.size(0)
                 module.in_channels = module.weight.size(1)
-                if module.groups is not 1:
+                if module.groups != 1:
                     # group convolution case
                     # only support for MobileNet, pointwise conv
                     module.in_channels = module.weight.size(0)
