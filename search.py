@@ -54,6 +54,7 @@ def main(opt):
     #####################  Create Baseline Model  ####################
     net = ModelWrapper(opt)
     net.load_checkpoint(opt.checkpoint)
+    net.parallel(opt.gpu_ids)
     flops_before, params_before = model_summary(net.get_compress_part(), dummy_input)
     print( flops_before, params_before)
 
