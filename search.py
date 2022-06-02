@@ -41,7 +41,9 @@ def main(opt):
     else:
         device = "cpu"
     ##################### Get Dataloader ####################
-    dataloader_train, dataloader_val = custom_get_dataloaders(opt)
+    from data.imagenet_train_val_split import get_dataloaders
+    dataloader_train, dataloader_val = get_dataloaders(opt.batch_size, opt.num_workers, path=opt.dataset_path)
+    # dataloader_train, dataloader_val = custom_get_dataloaders(opt)
     # dummy_input is sample input of dataloaders
     if hasattr(dataloader_val, "dataset"):
         dummy_input = dataloader_val.dataset.__getitem__(0)
