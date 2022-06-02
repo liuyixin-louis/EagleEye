@@ -95,7 +95,7 @@ def main(opt):
     st = time.time()
     with torch.no_grad():
         print("4")
-        for index, sample in tqdm(enumerate(dataloader_train, leave=False)):
+        for index, sample in tqdm(enumerate(dataloader_train)):
             print(index)
             _ = net.get_loss(sample)
             if index > 100:
