@@ -93,30 +93,30 @@ def main(opt):
     print("2")
     net.get_compress_part().train()
     print("3")
-    print(type(dataloader_train))
-    print(next(iter(dataloader_train)))
-    # import time
-    # st = time.time()
-    # with torch.no_grad():
-    #     print("4")
-    #     for index, sample in tqdm(enumerate(dataloader_train)):
-    #         print(index)
-    #         _ = net.get_loss(sample)
-    #         if index > 100:
-    #             break
-    # ed = time.time()
-    # print(ed-st,"s")
-    # strategy_score = net.get_eval_scores(dataloader_val)["accuracy"]
-    #
-    # #################### Save Pruning Strategy and Score #########
-    # log_file = open(opt.output_file, "a+")
-    # log_file.write("{} {} ".format(strategy_score, ratio))
-    #
-    # for item in channel_config:
-    #     log_file.write("{} ".format(str(item)))
-    # log_file.write("\n")
-    # log_file.close()
-    # print("Eval Score:{}".format(strategy_score))
+    # print(type(dataloader_train))
+    # print(next(iter(dataloader_train)))
+    import time
+    st = time.time()
+    with torch.no_grad():
+        print("4")
+        for index, sample in tqdm(enumerate(dataloader_train)):
+            print(index)
+            _ = net.get_loss(sample)
+            if index > 100:
+                break
+    ed = time.time()
+    print(ed-st,"s")
+    strategy_score = net.get_eval_scores(dataloader_val)["accuracy"]
+
+    #################### Save Pruning Strategy and Score #########
+    log_file = open(opt.output_file, "a+")
+    log_file.write("{} {} ".format(strategy_score, ratio))
+
+    for item in channel_config:
+        log_file.write("{} ".format(str(item)))
+    log_file.write("\n")
+    log_file.close()
+    print("Eval Score:{}".format(strategy_score))
 #
 
 if __name__ == "__main__":
