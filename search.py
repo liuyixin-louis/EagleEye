@@ -91,6 +91,7 @@ def main(opt):
     st = time.time()
     with torch.no_grad():
         for index, sample in tqdm(enumerate(dataloader_train, leave=False)):
+            print(index)
             _ = net.get_loss(sample)
             if index > 100:
                 break
