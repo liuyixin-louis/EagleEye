@@ -4,7 +4,7 @@ python3 search.py \
 --num_classes 1000 \
 --checkpoint models/ckpt/imagenet_mobilenet_full_model.pth \
 --gpu_ids 2 3 4 5 6 7 8 9 \
---batch_size 8 \
+--batch_size 128 \
 --dataset_path /data/imagenet \
 --dataset_name imagenet_train_val_split \
 --num_workers 4 \

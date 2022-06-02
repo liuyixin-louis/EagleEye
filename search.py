@@ -90,13 +90,13 @@ def main(opt):
     import time
     st = time.time()
     with torch.no_grad():
-        for index, sample in enumerate(tqdm(dataloader_train, leave=False)):
+        for index, sample in tqdm(enumerate(dataloader_train, leave=False)):
             _ = net.get_loss(sample)
             if index > 100:
                 break
-    strategy_score = net.get_eval_scores(dataloader_val)["accuracy"]
     ed = time.time()
     print(ed-st,"s")
+    strategy_score = net.get_eval_scores(dataloader_val)["accuracy"]
 
     #################### Save Pruning Strategy and Score #########
     log_file = open(opt.output_file, "a+")
