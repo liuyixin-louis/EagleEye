@@ -98,13 +98,13 @@ class SummaryGraph(object):
     def __init__(self, model, dummy_input):
         self._src_model = model
         model_clone = distiller.make_non_parallel_copy(model)
-        with torch.onnx.select_model_mode_for_export(model_clone, False):
+        with torch.onnx.set_training(model_clone, False):
 
             device = next(model_clone.parameters()).device
             dummy_input = distiller.convert_tensors_recursively_to(
                 dummy_input, device=device
             )
-            trace, _ = jit._get_trace_graph(
+            trace, _ = jit.get_trace_graph(
                 model_clone, dummy_input, _force_outplace=True
             )
 
