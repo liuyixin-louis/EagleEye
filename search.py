@@ -94,6 +94,7 @@ def main(opt):
     net.get_compress_part().train()
     print("3")
     print(type(dataloader_train))
+    print(next(iter(dataloader_train)))
     # import time
     # st = time.time()
     # with torch.no_grad():
