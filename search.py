@@ -100,7 +100,8 @@ def main(opt):
     with torch.no_grad():
         print("4")
         for index, sample in tqdm(enumerate(dataloader_train)):
-            print(index)
+            # print(index)
+            sample = sample.to(device)
             _ = net.get_loss(sample)
             if index > 100:
                 break
