@@ -85,11 +85,15 @@ def main(opt):
     #     # illegal pruning strategy
     #     return
     net = net.to(device)
+    print("1")
     net.parallel(opt.gpu_ids)
+    print("2")
     net.get_compress_part().train()
+    print("3")
     import time
     st = time.time()
     with torch.no_grad():
+        print("4")
         for index, sample in tqdm(enumerate(dataloader_train, leave=False)):
             print(index)
             _ = net.get_loss(sample)
