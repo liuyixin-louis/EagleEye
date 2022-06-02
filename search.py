@@ -81,9 +81,9 @@ def main(opt):
     flops_after, params_after = model_summary(net.get_compress_part(), dummy_input)
     ratio = flops_after / flops_before
     print("FLOPs ratio:", ratio)
-    if ratio < opt.flops_target - 0.005 or ratio > opt.flops_target + 0.005:
-        # illegal pruning strategy
-        return
+    # if ratio < opt.flops_target - 0.005 or ratio > opt.flops_target + 0.005:
+    #     # illegal pruning strategy
+    #     return
     net = net.to(device)
     net.parallel(opt.gpu_ids)
     net.get_compress_part().train()
