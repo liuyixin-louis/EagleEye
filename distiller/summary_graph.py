@@ -104,7 +104,7 @@ class SummaryGraph(object):
             dummy_input = distiller.convert_tensors_recursively_to(
                 dummy_input, device=device
             )
-            trace, _ = jit.get_trace_graph(
+            trace, _ = jit._get_trace_graph(
                 model_clone, dummy_input, _force_outplace=True
             )
 
