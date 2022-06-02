@@ -84,6 +84,7 @@ def main(opt):
     # if ratio < opt.flops_target - 0.005 or ratio > opt.flops_target + 0.005:
     #     # illegal pruning strategy
     #     return
+    print("0")
     net = net.to(device)
     print("1")
     net.parallel(opt.gpu_ids)
